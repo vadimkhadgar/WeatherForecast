@@ -12,14 +12,13 @@ import retrofit2.http.Query
 
 const val API_KEY = "1e146d165d6cd55bfaa47cbb33a57ef0"
 
-//http://api.weatherstack.com/current?access_key=1e146d165d6cd55bfaa47cbb33a57ef0&query=Brest&lang=en
+//http://api.weatherstack.com/current?access_key=1e146d165d6cd55bfaa47cbb33a57ef0&query=Brest
 
 interface WeatherstackApiService {
 
     @GET("current")
     fun getCurrentWeather(
-        @Query("q") location: String,
-        @Query("lang") languageCode: String = "en"
+        @Query("query") location: String
     ): Deferred<CurrentWeatherResponse>
 
     companion object {
@@ -29,7 +28,7 @@ interface WeatherstackApiService {
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("key", API_KEY)
+                    .addQueryParameter("access_key", API_KEY)
                     .build()
                 val request = chain.request()
                     .newBuilder()
