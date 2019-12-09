@@ -1,10 +1,11 @@
-package com.vadimbliashuk.myapplication.data
-
+package com.vadimbliashuk.myapplication.data.response
 
 import com.google.gson.annotations.SerializedName
 
+
 data class CurrentWeatherResponse(
-    val current: Current,
+    @SerializedName("current")
+    val currentWeatherEntry: CurrentWeatherEntry,
     val location: Location,
     val request: Request
 )

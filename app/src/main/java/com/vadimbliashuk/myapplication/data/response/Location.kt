@@ -1,4 +1,4 @@
-package com.vadimbliashuk.myapplication.data
+package com.vadimbliashuk.myapplication.data.response
 
 
 import com.google.gson.annotations.SerializedName
