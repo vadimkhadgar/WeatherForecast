@@ -1,7 +1,7 @@
 package com.vadimbliashuk.myapplication.data
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.vadimbliashuk.myapplication.data.response.CurrentWeatherResponse
+import com.vadimbliashuk.myapplication.data.network.response.CurrentWeatherResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -17,7 +17,7 @@ const val API_KEY = "1e146d165d6cd55bfaa47cbb33a57ef0"
 interface WeatherstackApiService {
 
     @GET("current")
-    fun getCurrentWeather(
+    fun getCurrentWeatherAsync(
         @Query("query") location: String
     ): Deferred<CurrentWeatherResponse>
 
