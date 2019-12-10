@@ -11,8 +11,8 @@ class ListConverter {
         return data.joinToString(separator = ",")
     }
 
-    @TypeConverter
-    fun toList(data: String): List<String> {
-        return data.split(",").toList()
-    }
+//    @TypeConverter
+//    fun toList(data: String): List<String> {
+//        return data.split(",").toList()
+//    }
 }
