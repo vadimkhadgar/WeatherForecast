@@ -2,9 +2,10 @@ package com.vadimbliashuk.myapplication.data.db.entity
 
 
 import androidx.room.Entity
-import androidx.room.TypeConverters
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.vadimbliashuk.myapplication.data.db.entity.converter.ListConverter
+
+const val CURRENT_WEATHER_ID = 0
 
 @Entity(tableName = "current_weather")
 data class CurrentWeatherEntry(
@@ -35,11 +36,9 @@ data class CurrentWeatherEntry(
     val weatherCode: Int,
 
     @SerializedName("weather_descriptions")
-    @TypeConverters(ListConverter::class)
     val weatherDescriptions: List<String>,
 
     @SerializedName("weather_icons")
-    @TypeConverters(ListConverter::class)
     val weatherIcons: List<String>,
 
     @SerializedName("wind_degree")
@@ -50,4 +49,7 @@ data class CurrentWeatherEntry(
 
     @SerializedName("wind_speed")
     val windSpeed: Double
-)
+) {
+    @PrimaryKey(autoGenerate = false)
+    var id: Int = CURRENT_WEATHER_ID
+}
