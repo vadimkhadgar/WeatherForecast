@@ -7,6 +7,6 @@ import com.vadimbliashuk.myapplication.internal.lazyDeffered
 class CurrentWeatherViewModel(
     private val forecastRepository: ForecastRepository
 ) : ViewModel() {
-    val weather by lazyDeffered() {
+    val weather by lazyDeffered {
         forecastRepository.getCurrentWeather() }
 }
