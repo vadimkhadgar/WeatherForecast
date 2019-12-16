@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Weather Location"
+        app:iconSpaceReserved="false">
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            android:key="USE_DEVICE_LOCATION"
+            android:summary="Allow the app to get your location"
+            android:title="Use device location" />
+
+        <EditTextPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="Brest"
+            android:dependency="USE_DEVICE_LOCATION"
+            android:key="CUSTOM_LOCATION"
+            android:summary="The location for which the weather is displayed"
+            android:title="Location" />
+    </PreferenceCategory>
+</PreferenceScreen>
