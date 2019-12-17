@@ -30,7 +30,8 @@ interface WeatherstackApiService {
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("access_key",
+                    .addQueryParameter(
+                        "access_key",
                         API_KEY
                     )
                     .build()

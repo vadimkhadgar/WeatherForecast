@@ -4,6 +4,7 @@
       <w>cloudcover</w>
       <w>feelslike</w>
       <w>precip</w>
+      <w>upsert</w>
       <w>weatherstack</w>
     </words>
   </dictionary>

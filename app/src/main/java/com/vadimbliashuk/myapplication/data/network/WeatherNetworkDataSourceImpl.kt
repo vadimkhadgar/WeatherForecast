@@ -21,8 +21,7 @@ class WeatherNetworkDataSourceImpl(
                 .getCurrentWeatherAsync(location)
                 .await()
             _downloadedCurrentWeather.postValue(fetchedCurrentWeather)
-        }
-        catch (e: NoConnectivityException ) {
+        } catch (e: NoConnectivityException) {
             Log.e("Connectivity", "No internet connection.", e)
         }
     }
