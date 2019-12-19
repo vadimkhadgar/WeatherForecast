@@ -1,7 +1,9 @@
 package com.vadimbliashuk.myapplication
 
 import android.app.Application
+import android.content.Context
 import androidx.preference.PreferenceManager
+import com.google.android.gms.location.LocationServices
 import com.jakewharton.threetenabp.AndroidThreeTen
 import com.vadimbliashuk.myapplication.data.db.ForecastDatabase
 import com.vadimbliashuk.myapplication.data.network.*
@@ -28,7 +30,8 @@ class ForecastApplication : Application(), KodeinAware {
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind().from(singleton { WeatherstackApiService(instance()) })
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
-        bind<LocationProvider>() with singleton { LocationProviderImpl() }
+        bind().from(provider { LocationServices.getFusedLocationProviderClient(instance<Context>()) })
+        bind<LocationProvider>() with singleton { LocationProviderImpl(instance(), instance()) }
         bind<ForecastRepository>() with singleton {
             ForecastRepositoryImpl(
                 instance(),
